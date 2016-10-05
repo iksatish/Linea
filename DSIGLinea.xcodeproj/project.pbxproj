@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220768E41DA563EF0054AADC /* CaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220768E31DA563EF0054AADC /* CaseListViewController.swift */; };
+		220768E71DA567920054AADC /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220768E61DA567920054AADC /* UserSession.swift */; };
+		220768E91DA57F510054AADC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220768E81DA57F510054AADC /* LoginViewController.swift */; };
+		220768EB1DA580140054AADC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220768EA1DA580140054AADC /* BaseViewController.swift */; };
+		220768EF1DA5858E0054AADC /* libdtdev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 220768EE1DA5858E0054AADC /* libdtdev.a */; };
+		220768F21DA585C20054AADC /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220768F11DA585C20054AADC /* ExternalAccessory.framework */; };
+		220768F61DA58B710054AADC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 220768F51DA58B710054AADC /* MBProgressHUD.m */; };
+		220768F81DA58BF20054AADC /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220768F71DA58BF20054AADC /* UIViewControllerExtension.swift */; };
 		227946921DA5523A007B971F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227946911DA5523A007B971F /* AppDelegate.swift */; };
-		227946941DA5523A007B971F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227946931DA5523A007B971F /* ViewController.swift */; };
 		227946971DA5523A007B971F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227946951DA5523A007B971F /* Main.storyboard */; };
 		2279469A1DA5523A007B971F /* DSIGLinea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227946981DA5523A007B971F /* DSIGLinea.xcdatamodeld */; };
 		2279469C1DA5523A007B971F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2279469B1DA5523A007B971F /* Assets.xcassets */; };
@@ -27,9 +34,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		220768E31DA563EF0054AADC /* CaseListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseListViewController.swift; sourceTree = "<group>"; };
+		220768E61DA567920054AADC /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSession.swift; path = Models/UserSession.swift; sourceTree = "<group>"; };
+		220768E81DA57F510054AADC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		220768EA1DA580140054AADC /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		220768ED1DA5858E0054AADC /* DTDevices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDevices.h; sourceTree = "<group>"; };
+		220768EE1DA5858E0054AADC /* libdtdev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdtdev.a; sourceTree = "<group>"; };
+		220768F11DA585C20054AADC /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		220768F41DA58B710054AADC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		220768F51DA58B710054AADC /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		220768F71DA58BF20054AADC /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		2279468E1DA5523A007B971F /* DSIGLinea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSIGLinea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		227946911DA5523A007B971F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		227946931DA5523A007B971F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		227946961DA5523A007B971F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		227946991DA5523A007B971F /* DSIGLinea.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DSIGLinea.xcdatamodel; sourceTree = "<group>"; };
 		2279469B1DA5523A007B971F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				220768F21DA585C20054AADC /* ExternalAccessory.framework in Frameworks */,
+				220768EF1DA5858E0054AADC /* libdtdev.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +76,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		220768E51DA5676C0054AADC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				220768E61DA567920054AADC /* UserSession.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		220768EC1DA5856F0054AADC /* DTDevices */ = {
+			isa = PBXGroup;
+			children = (
+				220768ED1DA5858E0054AADC /* DTDevices.h */,
+				220768EE1DA5858E0054AADC /* libdtdev.a */,
+			);
+			name = DTDevices;
+			sourceTree = "<group>";
+		};
+		220768F01DA585C20054AADC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				220768F11DA585C20054AADC /* ExternalAccessory.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		220768F31DA58B5F0054AADC /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				220768F41DA58B710054AADC /* MBProgressHUD.h */,
+				220768F51DA58B710054AADC /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		227946851DA5523A007B971F = {
 			isa = PBXGroup;
 			children = (
 				227946901DA5523A007B971F /* DSIGLinea */,
 				227946A81DA5523A007B971F /* DSIGLineaTests */,
 				2279468F1DA5523A007B971F /* Products */,
+				220768F01DA585C20054AADC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,13 +132,19 @@
 		227946901DA5523A007B971F /* DSIGLinea */ = {
 			isa = PBXGroup;
 			children = (
+				220768E51DA5676C0054AADC /* Models */,
+				227946B51DA5532B007B971F /* ServiceFramework */,
 				227946911DA5523A007B971F /* AppDelegate.swift */,
-				227946931DA5523A007B971F /* ViewController.swift */,
+				220768E31DA563EF0054AADC /* CaseListViewController.swift */,
+				220768F71DA58BF20054AADC /* UIViewControllerExtension.swift */,
+				220768EA1DA580140054AADC /* BaseViewController.swift */,
+				220768E81DA57F510054AADC /* LoginViewController.swift */,
 				227946951DA5523A007B971F /* Main.storyboard */,
 				2279469B1DA5523A007B971F /* Assets.xcassets */,
 				2279469D1DA5523A007B971F /* LaunchScreen.storyboard */,
 				227946A01DA5523A007B971F /* Info.plist */,
 				227946981DA5523A007B971F /* DSIGLinea.xcdatamodeld */,
+				227946B41DA55245007B971F /* External Frameworks */,
 			);
 			path = DSIGLinea;
 			sourceTree = "<group>";
@@ -97,6 +156,22 @@
 				227946AB1DA5523A007B971F /* Info.plist */,
 			);
 			path = DSIGLineaTests;
+			sourceTree = "<group>";
+		};
+		227946B41DA55245007B971F /* External Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				220768F31DA58B5F0054AADC /* MBProgressHUD */,
+				220768EC1DA5856F0054AADC /* DTDevices */,
+			);
+			name = "External Frameworks";
+			sourceTree = "<group>";
+		};
+		227946B51DA5532B007B971F /* ServiceFramework */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ServiceFramework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,8 +280,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2279469A1DA5523A007B971F /* DSIGLinea.xcdatamodeld in Sources */,
-				227946941DA5523A007B971F /* ViewController.swift in Sources */,
+				220768E41DA563EF0054AADC /* CaseListViewController.swift in Sources */,
 				227946921DA5523A007B971F /* AppDelegate.swift in Sources */,
+				220768E91DA57F510054AADC /* LoginViewController.swift in Sources */,
+				220768F81DA58BF20054AADC /* UIViewControllerExtension.swift in Sources */,
+				220768E71DA567920054AADC /* UserSession.swift in Sources */,
+				220768EB1DA580140054AADC /* BaseViewController.swift in Sources */,
+				220768F61DA58B710054AADC /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,26 +424,46 @@
 		227946AF1DA5523A007B971F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = L6FLFL572G;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DSIGLinea/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DSIGLinea",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsig.linea.DSIGLinea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = DSIGLinea/DTDevices.h;
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Debug;
 		};
 		227946B01DA5523A007B971F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = L6FLFL572G;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DSIGLinea/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DSIGLinea",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dsig.linea.DSIGLinea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = DSIGLinea/DTDevices.h;
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Release;
 		};
@@ -416,6 +516,7 @@
 				227946B01DA5523A007B971F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		227946B11DA5523A007B971F /* Build configuration list for PBXNativeTarget "DSIGLineaTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +525,7 @@
 				227946B31DA5523A007B971F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

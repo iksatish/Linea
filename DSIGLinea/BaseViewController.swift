@@ -8,28 +8,29 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
-
+class BaseViewController: UIViewController, DTDeviceDelegate {
+    let scanner = DTDevices()
+    
     override func viewDidLoad() {
+        self.scanner.delegate = self
+        self.scanner.connect()
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        guard let _ = UserSession.loggedInUser else{
+            let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
+            self.navigationController?.present(loginVC, animated: true, completion: nil)
+            return
+        }
     }
-    */
-
+    
+    func barcodeData(_ barcode: String!, type: Int32) {
+        let alertController = UIAlertController(title: "barcode", message: barcode, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
 }

@@ -7,3 +7,21 @@
 //
 
 import Foundation
+
+class UserSession:NSObject
+{
+    static var loggedInUser: User?
+    
+    class func isSessionStillValid() -> Bool
+    {
+        return true
+    }
+    
+    
+}
+
+class User:NSObject{
+    var userName: String?
+    var firstName: String?
+    var lastName: String?
+}

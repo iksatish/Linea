@@ -2,7 +2,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-
+#import "MBProgressHUD.h"
 #ifdef BTLE
 #import <CoreBluetooth/CoreBluetooth.h>
 #endif
