@@ -25,4 +25,33 @@ extension UIViewController{
         
     }
     
+    func showAlert(title: String, message: String)
+    {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+
 }
+
+extension UITableView{
+
+    func setupFooterView()
+    {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: 1))
+        view.backgroundColor = UIColor.clear
+        self.tableFooterView = view
+        
+    }
+}
+
+extension String {
+    func stringByAddingPercentEncodingForRFC3986() -> String? {
+        let unreserved = "-._~/?"
+        let allowed = NSMutableCharacterSet.alphanumeric()
+        allowed.addCharacters(in: unreserved)
+        return addingPercentEncoding(withAllowedCharacters: allowed as CharacterSet)
+    }
+}
+

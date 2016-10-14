@@ -14,13 +14,19 @@
 		220768EF1DA5858E0054AADC /* libdtdev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 220768EE1DA5858E0054AADC /* libdtdev.a */; };
 		220768F21DA585C20054AADC /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220768F11DA585C20054AADC /* ExternalAccessory.framework */; };
 		220768F61DA58B710054AADC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 220768F51DA58B710054AADC /* MBProgressHUD.m */; };
-		220768F81DA58BF20054AADC /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220768F71DA58BF20054AADC /* UIViewControllerExtension.swift */; };
+		220768F81DA58BF20054AADC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220768F71DA58BF20054AADC /* Extensions.swift */; };
+		223E42441DA6BB170071521A /* IndividualDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223E42431DA6BB170071521A /* IndividualDataViewController.swift */; };
+		223E42461DA6C8380071521A /* DataObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223E42451DA6C8380071521A /* DataObjects.swift */; };
+		224A7B431DA68EBC00CEDF92 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A7B421DA68EBC00CEDF92 /* ServiceProvider.swift */; };
+		224A7B451DA6906200CEDF92 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A7B441DA6906200CEDF92 /* Constants.swift */; };
 		227946921DA5523A007B971F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227946911DA5523A007B971F /* AppDelegate.swift */; };
 		227946971DA5523A007B971F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227946951DA5523A007B971F /* Main.storyboard */; };
 		2279469A1DA5523A007B971F /* DSIGLinea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227946981DA5523A007B971F /* DSIGLinea.xcdatamodeld */; };
 		2279469C1DA5523A007B971F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2279469B1DA5523A007B971F /* Assets.xcassets */; };
 		2279469F1DA5523A007B971F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2279469D1DA5523A007B971F /* LaunchScreen.storyboard */; };
 		227946AA1DA5523A007B971F /* DSIGLineaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227946A91DA5523A007B971F /* DSIGLineaTests.swift */; };
+		229F689F1DA69B0C00D53139 /* CaseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F689E1DA69B0C00D53139 /* CaseDetailsViewController.swift */; };
+		22F340C01DAE821D001E7DF2 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F340BF1DAE821D001E7DF2 /* NotesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +49,11 @@
 		220768F11DA585C20054AADC /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		220768F41DA58B710054AADC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		220768F51DA58B710054AADC /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		220768F71DA58BF20054AADC /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		220768F71DA58BF20054AADC /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		223E42431DA6BB170071521A /* IndividualDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndividualDataViewController.swift; sourceTree = "<group>"; };
+		223E42451DA6C8380071521A /* DataObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataObjects.swift; path = Models/DataObjects.swift; sourceTree = "<group>"; };
+		224A7B421DA68EBC00CEDF92 /* ServiceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		224A7B441DA6906200CEDF92 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2279468E1DA5523A007B971F /* DSIGLinea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSIGLinea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		227946911DA5523A007B971F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		227946961DA5523A007B971F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +64,8 @@
 		227946A51DA5523A007B971F /* DSIGLineaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSIGLineaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		227946A91DA5523A007B971F /* DSIGLineaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSIGLineaTests.swift; sourceTree = "<group>"; };
 		227946AB1DA5523A007B971F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		229F689E1DA69B0C00D53139 /* CaseDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseDetailsViewController.swift; sourceTree = "<group>"; };
+		22F340BF1DAE821D001E7DF2 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				220768E61DA567920054AADC /* UserSession.swift */,
+				223E42451DA6C8380071521A /* DataObjects.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -135,11 +148,15 @@
 				220768E51DA5676C0054AADC /* Models */,
 				227946B51DA5532B007B971F /* ServiceFramework */,
 				227946911DA5523A007B971F /* AppDelegate.swift */,
+				22F340BF1DAE821D001E7DF2 /* NotesViewController.swift */,
 				220768E31DA563EF0054AADC /* CaseListViewController.swift */,
-				220768F71DA58BF20054AADC /* UIViewControllerExtension.swift */,
+				220768F71DA58BF20054AADC /* Extensions.swift */,
+				223E42431DA6BB170071521A /* IndividualDataViewController.swift */,
 				220768EA1DA580140054AADC /* BaseViewController.swift */,
+				224A7B441DA6906200CEDF92 /* Constants.swift */,
 				220768E81DA57F510054AADC /* LoginViewController.swift */,
 				227946951DA5523A007B971F /* Main.storyboard */,
+				229F689E1DA69B0C00D53139 /* CaseDetailsViewController.swift */,
 				2279469B1DA5523A007B971F /* Assets.xcassets */,
 				2279469D1DA5523A007B971F /* LaunchScreen.storyboard */,
 				227946A01DA5523A007B971F /* Info.plist */,
@@ -170,6 +187,7 @@
 		227946B51DA5532B007B971F /* ServiceFramework */ = {
 			isa = PBXGroup;
 			children = (
+				224A7B421DA68EBC00CEDF92 /* ServiceProvider.swift */,
 			);
 			name = ServiceFramework;
 			sourceTree = "<group>";
@@ -282,9 +300,15 @@
 				2279469A1DA5523A007B971F /* DSIGLinea.xcdatamodeld in Sources */,
 				220768E41DA563EF0054AADC /* CaseListViewController.swift in Sources */,
 				227946921DA5523A007B971F /* AppDelegate.swift in Sources */,
+				223E42441DA6BB170071521A /* IndividualDataViewController.swift in Sources */,
+				224A7B431DA68EBC00CEDF92 /* ServiceProvider.swift in Sources */,
 				220768E91DA57F510054AADC /* LoginViewController.swift in Sources */,
-				220768F81DA58BF20054AADC /* UIViewControllerExtension.swift in Sources */,
+				224A7B451DA6906200CEDF92 /* Constants.swift in Sources */,
+				229F689F1DA69B0C00D53139 /* CaseDetailsViewController.swift in Sources */,
+				220768F81DA58BF20054AADC /* Extensions.swift in Sources */,
 				220768E71DA567920054AADC /* UserSession.swift in Sources */,
+				22F340C01DAE821D001E7DF2 /* NotesViewController.swift in Sources */,
+				223E42461DA6C8380071521A /* DataObjects.swift in Sources */,
 				220768EB1DA580140054AADC /* BaseViewController.swift in Sources */,
 				220768F61DA58B710054AADC /* MBProgressHUD.m in Sources */,
 			);

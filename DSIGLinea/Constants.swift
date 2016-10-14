@@ -7,3 +7,6 @@
 //
 
 import Foundation
+
+let baseUrl = "https://apitracking.apeasy.com/api/"
+let kLoggedInKey = "kLoggedInUser"

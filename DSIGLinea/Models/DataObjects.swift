@@ -7,3 +7,47 @@
 //
 
 import Foundation
+
+class CaseData: NSObject
+{
+    var caseno = ""
+    var firstName = ""
+    var lastName = ""
+    var dob = ""
+    var receivedDate = ""
+    var accessionedDate = ""
+    var specimens:[Specimen] = []
+}
+
+class Specimen: NSObject
+{
+    var specimenCode = ""
+    var siteName = ""
+    var tissue = ""
+    var procedure = ""
+    var numberOfCassettes = ""
+    var numberOfSlides = ""
+    var specimen = ""
+    var cassette = ""
+    var slide = ""
+    var specimenTitle = ""
+    var isVerified = false
+    var caseNo = ""
+    var internalId = ""
+    var grossingId = ""
+    var embeddingId = ""
+    var stainingId = ""
+    var qaId = ""
+    var microtomeId = ""
+    var specimenId = ""
+}
+
+class Notes: NSObject
+{
+    var notesId = ""
+    var notes = ""
+    var createdTime = ""
+}
+
+
+
