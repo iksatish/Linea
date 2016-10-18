@@ -13,8 +13,10 @@ class LoginViewController: UIViewController, URLSessionDelegate {
     @IBOutlet weak var loginContainer: UIView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loginBtn.layer.cornerRadius = 3.0
         self.loginContainer.layer.cornerRadius = 10.0
     }
 

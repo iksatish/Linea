@@ -15,12 +15,16 @@ class CaseListViewController: BaseViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var searchBar: UISearchBar!
     var results: [String] = []
     var originalResults: [String] = []
+    let searchedNos = "searchedbarcodes"
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "DSIG Linea"
         self.searchBar.delegate = self
         self.tableView.setupFooterView()
-        self.results = ["S16-00088", "CA1001", "1CA001", "2CA23001", "232CA0012", "C22A22222202101"]
+        if let res = UserDefaults.standard.array(forKey: searchedNos) as? [String]
+        {
+            self.results = res
+        }
         self.originalResults = self.results
     }
 
@@ -102,7 +106,6 @@ class CaseListViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
     override func handleDataSourceUpdate(resultString: String)
     {
-        self.results.append(resultString)
         self.originalResults = self.results
         self.tableView.reloadData()
     }
@@ -116,6 +119,17 @@ class CaseListViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
     
     override func openNextView(caseData:CaseData) {
+        if let res = UserDefaults.standard.array(forKey: searchedNos) as? [String]
+        {
+            if !res.contains(caseData.caseno)
+            {
+                self.originalResults.append(caseData.caseno)
+            }
+        }else{
+            self.originalResults.append(caseData.caseno)
+        }
+        self.results = self.originalResults
+        self.addNewItem()
         self.performSegue(withIdentifier: "showdetailsegue", sender: self)
     }
     
@@ -129,7 +143,11 @@ class CaseListViewController: BaseViewController, UITableViewDelegate, UITableVi
             }
         }
     }
-
     
+    func addNewItem()
+    {
+        UserDefaults.standard.setValue(self.originalResults, forKey: searchedNos)
+        UserDefaults.standard.synchronize()
+    }
     
 }

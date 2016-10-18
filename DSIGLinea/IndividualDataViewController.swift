@@ -20,6 +20,10 @@ class IndividualDataViewController: BaseViewController, UITableViewDelegate, UIT
         self.caseData.specimens = []
         self.tableView.setupFooterView()
         self.title = self.actionType.rawValue + " Data"
+        self.barcodeLabel.text = "  Case No: \(self.caseData.caseno)"
+        self.barcodeLabel.layer.cornerRadius = 6.0
+        self.barcodeLabel.layer.borderWidth = 1.0
+        self.barcodeLabel.layer.borderColor = UIColor.darkGray.cgColor
    }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -122,8 +126,8 @@ class IndividualDataViewController: BaseViewController, UITableViewDelegate, UIT
     }
     
     override func barcodeData(_ barcode: String!, type: Int32) {
-        self.barcodeLabel.text = "Barcode: \(barcode)"
-        if let specimenObj = self.caseData.specimens.filter({$0.cassette == barcode}).first, actionType != .Grossing{
+        self.barcodeLabel.text = "  Case No: \(self.caseData.caseno) \n  Barcode: \(barcode)"
+        if let specimenObj = self.caseData.specimens.filter({$0.cassette == barcode}).first, actionType != .Accessioning{
             self.markSpecimenAsVerified(actionType: self.actionType, specimen: specimenObj)
         }else{
             self.showAlert(title: "Oops!", message: "No matching specimen with cassette key: \(barcode) found!")

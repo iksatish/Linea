@@ -14,11 +14,15 @@ class NotesViewController: BaseViewController, UITabBarDelegate, UITableViewData
     var notes: [Notes] = []
     var specimen = Specimen()
     
+    @IBOutlet weak var addNotesBtn: UIButton!
+    @IBOutlet weak var closeBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var notesTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.headerLabel.text = "Case No: \(specimen.caseNo), Specimen Id: \(specimen.specimenId)"
+        self.addNotesBtn.layer.cornerRadius = 3.0
+        self.closeBtn.layer.cornerRadius = 3.0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
