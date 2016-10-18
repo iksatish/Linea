@@ -136,7 +136,7 @@
         <!--Individual Data View Controller-->
         <scene sceneID="zys-oY-DFy">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="en0-KR-93s" customClass="IndividualDataViewController" customModule="DSIGLinea" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IndividualDataViewController" automaticallyAdjustsScrollViewInsets="NO" id="en0-KR-93s" customClass="IndividualDataViewController" customModule="DSIGLinea" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8SS-wQ-Rxw"/>
                         <viewControllerLayoutGuide type="bottom" id="pgU-ta-Mag"/>
@@ -145,6 +145,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jA-Ri-btZ">
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TNk-By-lf6">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -178,7 +183,7 @@
                                                 </button>
                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icR-qJ-mkl">
                                                     <color key="backgroundColor" red="0.85098039219999999" green="0.52156862749999999" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="B2">
+                                                    <state key="normal" title="Verify">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
@@ -223,13 +228,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TNk-By-lf6" firstAttribute="top" secondItem="8SS-wQ-Rxw" secondAttribute="bottom" id="0BV-ft-Bdv"/>
+                            <constraint firstItem="TNk-By-lf6" firstAttribute="top" secondItem="7jA-Ri-btZ" secondAttribute="bottom" id="HzB-Rr-amG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7jA-Ri-btZ" secondAttribute="trailing" id="PFU-zy-BFn"/>
                             <constraint firstAttribute="trailing" secondItem="TNk-By-lf6" secondAttribute="trailing" id="eBV-Ww-gZ1"/>
                             <constraint firstItem="pgU-ta-Mag" firstAttribute="top" secondItem="TNk-By-lf6" secondAttribute="bottom" id="gMe-XZ-tz5"/>
+                            <constraint firstItem="7jA-Ri-btZ" firstAttribute="leading" secondItem="1qu-DH-mKG" secondAttribute="leadingMargin" id="kie-BB-xTd"/>
                             <constraint firstItem="TNk-By-lf6" firstAttribute="leading" secondItem="1qu-DH-mKG" secondAttribute="leading" id="tp8-cC-x2Q"/>
+                            <constraint firstItem="7jA-Ri-btZ" firstAttribute="top" secondItem="8SS-wQ-Rxw" secondAttribute="bottom" id="wVw-QJ-1Uo"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="barcodeLabel" destination="7jA-Ri-btZ" id="dzP-o3-4qy"/>
                         <outlet property="tableView" destination="TNk-By-lf6" id="xeU-x3-sju"/>
                     </connections>
                 </viewController>
@@ -397,7 +406,7 @@ All rights reserved.</string>
                                     <action selector="notesTextView:" destination="hWI-lB-wbM" eventType="touchUpInside" id="7Zh-gI-qvM"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="38" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="23l-xo-wq8">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="38" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="23l-xo-wq8">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentifier" rowHeight="38" id="fWs-Iv-g2r">

@@ -11,15 +11,22 @@ protocol ButtonActionsDelegate{
     func handleButtonActionForTag(tagNo:Int, specimen:Specimen)
 }
 class IndividualDataViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, ButtonActionsDelegate {
+    @IBOutlet weak var barcodeLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var selectedRow = 999
     let verifiedColor = UIColor.init(colorLiteralRed: 144/255, green: 187/255, blue: 145/255, alpha: 1.0)
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.caseData.specimens = []
         self.tableView.setupFooterView()
-        self.getDataForActionType(actionType: actionType, caseno: self.caseData.caseno)
         self.title = self.actionType.rawValue + " Data"
    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.getDataForActionType(actionType: actionType, caseno: self.caseData.caseno)
+
+    }
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.caseData.specimens.count > 0 ? self.caseData.specimens.count : 1
@@ -42,8 +49,15 @@ class IndividualDataViewController: BaseViewController, UITableViewDelegate, UIT
                 actionCell.delegate = self
                 actionCell.selectionStyle = .none
                 actionCell.backgroundColor = specimen.isVerified ? verifiedColor : UIColor.white
+                actionCell.button2.setTitle(specimen.isVerified ? "Verified" : "Verify", for: UIControlState.normal)
                 actionCell.specimen = specimen
                 actionCell.updateButtonsForActionType(actionType: self.actionType)
+                if specimen.isVerified
+                {
+                    actionCell.button2.backgroundColor = UIColor.darkGray
+                    actionCell.button2.isEnabled = false
+                    
+                }
                 return actionCell
 
             }
@@ -99,12 +113,21 @@ class IndividualDataViewController: BaseViewController, UITableViewDelegate, UIT
         notesVC.notes = notes
         notesVC.specimen = specimen
         notesVC.actionType = self.actionType
-        self.navigationController?.present(notesVC, animated: true, completion: nil)
+        self.present(notesVC, animated: true, completion: nil)
     }
     
     override func refreshData()
     {
         self.getDataForActionType(actionType: self.actionType, caseno: self.caseData.caseno)
+    }
+    
+    override func barcodeData(_ barcode: String!, type: Int32) {
+        self.barcodeLabel.text = "Barcode: \(barcode)"
+        if let specimenObj = self.caseData.specimens.filter({$0.cassette == barcode}).first, actionType != .Grossing{
+            self.markSpecimenAsVerified(actionType: self.actionType, specimen: specimenObj)
+        }else{
+            self.showAlert(title: "Oops!", message: "No matching specimen with cassette key: \(barcode) found!")
+        }
     }
 }
 
@@ -122,9 +145,15 @@ class ActionTableViewCell: UITableViewCell
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.button1.isHidden = true
-        self.button2.isHidden = true
-        self.button3.isHidden = true
+        self.setupButton(button: self.button1)
+        self.setupButton(button: self.button2)
+        self.setupButton(button: self.button3)
+    }
+    
+    func setupButton(button: UIButton)
+    {
+        button.isHidden = true
+        button.layer.cornerRadius = 3.0
     }
     
     func updateButtonsForActionType(actionType: ActionType)

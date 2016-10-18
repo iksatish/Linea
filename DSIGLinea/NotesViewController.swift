@@ -18,7 +18,7 @@ class NotesViewController: BaseViewController, UITabBarDelegate, UITableViewData
     @IBOutlet weak var notesTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.headerLabel.text = "Case No: \(specimen.caseNo), Specimen Id: \(specimen.internalId)"
+        self.headerLabel.text = "Case No: \(specimen.caseNo), Specimen Id: \(specimen.specimenId)"
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -85,6 +85,7 @@ class NotesViewController: BaseViewController, UITabBarDelegate, UITableViewData
                     return
                 }
                 DispatchQueue.main.async {
+                    self.notesTextView.text = ""
                     self.getNotesForSpecimen(specimen: specimen)
                 }
                 
@@ -102,6 +103,7 @@ class NotesViewController: BaseViewController, UITabBarDelegate, UITableViewData
     }
     
     func notesPostUrl(actionType: ActionType, specimen: Specimen) -> String{
+        self.notesTextView.resignFirstResponder()
         guard let user = UserSession.signedInUser else{
             self.showAlert(title: "Error!", message: "User Signed out, Please Login in!")
             UserSession.logOutUser()

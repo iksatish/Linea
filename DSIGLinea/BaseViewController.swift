@@ -32,10 +32,12 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
         self.scanner.delegate = self
         self.scanner.connect()
         super.viewDidLoad()
+        /*
         self.connectionStatebutton = UIButton(frame: CGRect(x: 5, y: 0, width: 22, height: 22))
         self.connectionStatebutton?.layer.cornerRadius = 11
         self.connectionState(self.scanner.connstate)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.connectionStatebutton!)
+ */
         
     }
     
@@ -74,7 +76,9 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
             do{
                 if let _ = error
                 {
-                    self.showAlert(title: "Service Issue", message: "Please try again!")
+                    DispatchQueue.main.async {
+                        self.showAlert(title: "Service Issue", message: "Please try again!")
+                    }
                 }
                 guard let _ = data, let jsonData = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary else
                 {
@@ -93,17 +97,6 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
                     self.showAlert(title: "Oops!", message: "There are no records for case no: \(caseno).")
                 }
                 
-            }
-            guard let _ = data as NSData?, let _:URLResponse = response, error == nil else {
-                print("error")
-                return
-            }
-            
-            let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            print(dataString)
-            DispatchQueue.main.async {
- //               self.navigationController?.popToRootViewController(animated: false)
- //               self.performSegue(withIdentifier: "showdetailsegue", sender: self)
             }
         }
         
@@ -154,7 +147,7 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
         {
             color = UIColor.yellow
         }
-        self.connectionStatebutton?.backgroundColor = color
+       // self.connectionStatebutton?.backgroundColor = color
         
     }
     
@@ -272,7 +265,9 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
                     if let specimenId = grossData.value(forKey: "Specimen_Id") as? String{
                         specimen.specimenId = specimenId
                     }
-
+                    if let accessionNo = dataObj?.value(forKey: "Accession_No") as? Int{
+                        specimen.accessionNo = "\(accessionNo)"
+                    }
                     specimen.caseNo = caseData.caseno
                     specimens.append(specimen)
                 }
@@ -308,6 +303,9 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
                     if let specimenId = specimenData.value(forKey: "Specimen_Id") as? Int{
                         specimen.specimenId = "\(specimenId)"
                     }
+                    if let accessionNo = dataObj?.value(forKey: "Accession_No") as? Int{
+                        specimen.accessionNo = "\(accessionNo)"
+                    }
 
                     specimen.caseNo = caseData.caseno
                     specimens.append(specimen)
@@ -337,6 +335,9 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
                     }
                     if let specimenId = embeddingData.value(forKey: "Specimen_Id") as? String{
                         specimen.specimenId = specimenId
+                    }
+                    if let accessionNo = dataObj?.value(forKey: "Accession_No") as? Int{
+                        specimen.accessionNo = "\(accessionNo)"
                     }
 
                     specimen.caseNo = caseData.caseno
@@ -368,6 +369,9 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
                     if let specimenId = microTomeData.value(forKey: "Specimen_Id") as? String{
                         specimen.specimenId = specimenId
                     }
+                    if let accessionNo = dataObj?.value(forKey: "Accession_No") as? Int{
+                        specimen.accessionNo = "\(accessionNo)"
+                    }
 
                     specimen.caseNo = caseData.caseno
                     specimens.append(specimen)
@@ -398,6 +402,9 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
                     if let specimenId = stainingData.value(forKey: "Specimen_Id") as? String{
                         specimen.specimenId = specimenId
                     }
+                    if let accessionNo = dataObj?.value(forKey: "Accession_No") as? Int{
+                        specimen.accessionNo = "\(accessionNo)"
+                    }
 
                     specimen.caseNo = caseData.caseno
                     specimens.append(specimen)
@@ -424,6 +431,9 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
                     }
                     if let specimenId = qaData.value(forKey: "Specimen_Id") as? String{
                         specimen.specimenId = specimenId
+                    }
+                    if let accessionNo = dataObj?.value(forKey: "Accession_No") as? Int{
+                        specimen.accessionNo = "\(accessionNo)"
                     }
 
                     specimen.caseNo = caseData.caseno
@@ -606,13 +616,13 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
         switch actionType
         {
         case .Grossing:
-            return baseUrl + "grossing?AccessionNo=\(specimen.grossingId)&UserName=\(user.userName)&UserId=\(user.userId)&gsid=\(specimen.grossingId),\(specimen.specimenId)"
+            return baseUrl + "grossing?AccessionNo=\(specimen.accessionNo)&UserName=\(user.userName)&UserId=\(user.userId)&gsid=\(specimen.grossingId),\(specimen.specimenId)"
         case .Embedding:
-            return baseUrl + "embedding?AccessionNo=\(specimen.embeddingId)&UserName=\(user.userName)&UserId=\(user.userId)&eid=\(specimen.embeddingId),\(specimen.specimenId)"
+            return baseUrl + "embedding?AccessionNo=\(specimen.accessionNo)&UserName=\(user.userName)&UserId=\(user.userId)&eid=\(specimen.embeddingId),\(specimen.specimenId)"
         case .Staining:
-            return baseUrl + "staining?AccessionNo=\(specimen.stainingId)&UserName=\(user.userName)&UserId=\(user.userId)&sid=\(specimen.grossingId),\(specimen.specimenId)"
+            return baseUrl + "staining?AccessionNo=\(specimen.accessionNo)&UserName=\(user.userName)&UserId=\(user.userId)&sid=\(specimen.stainingId),\(specimen.specimenId)"
         case .QA:
-            return baseUrl + "qa?AccessionNo=\(specimen.grossingId)&UserName=\(user.userName)&UserId=\(user.userId)&qaid=\(specimen.grossingId),\(specimen.specimenId)"
+            return baseUrl + "qa?AccessionNo=\(specimen.accessionNo)&UserName=\(user.userName)&UserId=\(user.userId)&qaid=\(specimen.qaId),\(specimen.specimenId)"
         default:
             return ""
         }

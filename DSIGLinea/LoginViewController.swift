@@ -24,6 +24,8 @@ class LoginViewController: UIViewController, URLSessionDelegate {
     
     func makeLogin()
     {
+        self.userNameTextField.resignFirstResponder()
+        self.passwordTextField.resignFirstResponder()
         guard let userId = self.userNameTextField.text, let password = self.passwordTextField.text, userId.characters.count > 0, password.characters.count > 0 else
         {
             self.showAlert(title: "Oops!", message: "Please enter both id and password to continue!")

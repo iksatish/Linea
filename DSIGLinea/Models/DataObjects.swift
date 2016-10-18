@@ -40,6 +40,7 @@ class Specimen: NSObject
     var qaId = ""
     var microtomeId = ""
     var specimenId = ""
+    var accessionNo = ""
 }
 
 class Notes: NSObject
