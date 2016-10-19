@@ -20,7 +20,7 @@ enum ActionType:String
 import UIKit
 
 class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate {
-    let scanner = DTDevices()
+    let scanner = DTDevices.sharedDevice() as! DTDevices
     var connectionStatebutton:UIButton?
     var caseno: String = ""
     var caseData: CaseData = CaseData()
@@ -29,17 +29,17 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
     var selectedSpecimenId = ""
     
     override func viewDidLoad() {
-        self.scanner.delegate = self
-        self.scanner.connect()
         super.viewDidLoad()
-        /*
-        self.connectionStatebutton = UIButton(frame: CGRect(x: 5, y: 0, width: 22, height: 22))
-        self.connectionStatebutton?.layer.cornerRadius = 11
-        self.connectionState(self.scanner.connstate)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.connectionStatebutton!)
- */
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.scanner.delegate = self
+        self.scanner.connect()
+    }
+    
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -48,12 +48,13 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
             self.navigationController?.present(loginVC, animated: true, completion: nil)
             return
         }
+        
     }
     
     func barcodeData(_ barcode: String!, type: Int32) {
-        self.handleDataSourceUpdate(resultString: barcode)
-        self.caseno = barcode
-        self.getDataForActionType(actionType: .Grossing, caseno: barcode)
+        self.handleDataSourceUpdate(resultString: barcode!)
+        self.caseno = barcode!
+        self.getDataForActionType(actionType: .Grossing, caseno: barcode!)
         
     }
     
@@ -136,18 +137,6 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
     func handleDataSourceUpdate(resultString: String)
     {
      //   let resultInfo = NSDictionary()
-        
-    }
-    func connectionState(_ state: Int32) {
-        var color = UIColor.green
-        if state == 0
-        {
-            color = UIColor.red
-        }else if state == 1
-        {
-            color = UIColor.yellow
-        }
-       // self.connectionStatebutton?.backgroundColor = color
         
     }
     

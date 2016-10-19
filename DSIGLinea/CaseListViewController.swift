@@ -21,13 +21,36 @@ class CaseListViewController: BaseViewController, UITableViewDelegate, UITableVi
         self.title = "DSIG Linea"
         self.searchBar.delegate = self
         self.tableView.setupFooterView()
+        self.connectionStatebutton = UIButton(frame: CGRect(x: 5, y: 0, width: 22, height: 22))
+        self.connectionStatebutton?.layer.cornerRadius = 11
+        self.connectionState(self.scanner.connstate)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.connectionStatebutton!)
+
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if let res = UserDefaults.standard.array(forKey: searchedNos) as? [String]
         {
             self.results = res
         }
         self.originalResults = self.results
+        self.tableView.reloadData()
+    }
+    func connectionState(_ state: Int32) {
+        var color = UIColor.green
+        if state == 0
+        {
+            color = UIColor.red
+        }else if state == 1
+        {
+            color = UIColor.yellow
+        }
+        self.connectionStatebutton?.backgroundColor = color
+        
     }
 
+    
     //MARK : - TableView Delegate methods
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -75,6 +98,7 @@ class CaseListViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        self.originalResults.remove(at: self.originalResults.index(of: self.results[self.results.count-indexPath.row-1])!)
         self.results.remove(at: self.results.count-indexPath.row-1)
         self.tableView.reloadData()
     }
@@ -106,7 +130,7 @@ class CaseListViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
     override func handleDataSourceUpdate(resultString: String)
     {
-        self.originalResults = self.results
+        self.results = self.originalResults
         self.tableView.reloadData()
     }
     
@@ -148,6 +172,10 @@ class CaseListViewController: BaseViewController, UITableViewDelegate, UITableVi
     {
         UserDefaults.standard.setValue(self.originalResults, forKey: searchedNos)
         UserDefaults.standard.synchronize()
+    }
+    
+    override func barcodeData(_ barcode: String!, type: Int32) {
+        super.barcodeData(barcode, type: type)
     }
     
 }

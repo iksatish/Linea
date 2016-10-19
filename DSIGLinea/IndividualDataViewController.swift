@@ -126,11 +126,11 @@ class IndividualDataViewController: BaseViewController, UITableViewDelegate, UIT
     }
     
     override func barcodeData(_ barcode: String!, type: Int32) {
-        self.barcodeLabel.text = "  Case No: \(self.caseData.caseno) \n  Barcode: \(barcode)"
-        if let specimenObj = self.caseData.specimens.filter({$0.cassette == barcode}).first, actionType != .Accessioning{
+        if let specimenObj = self.caseData.specimens.filter({$0.cassette == barcode!}).first, actionType != .Accessioning{
+            self.barcodeLabel.text = "  Case No: \(self.caseData.caseno) \n  Barcode: \(barcode!)"
             self.markSpecimenAsVerified(actionType: self.actionType, specimen: specimenObj)
         }else{
-            self.showAlert(title: "Oops!", message: "No matching specimen with cassette key: \(barcode) found!")
+            self.showAlert(title: "Oops!", message: "No matching specimen with cassette key: \(barcode!) found!")
         }
     }
 }

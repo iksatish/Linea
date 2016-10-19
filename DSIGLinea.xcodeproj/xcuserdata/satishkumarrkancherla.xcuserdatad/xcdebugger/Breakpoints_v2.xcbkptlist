@@ -16,17 +16,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DSIGLinea/BaseViewController.swift"
-            timestampString = "498497026.638612"
+            timestampString = "498587899.259085"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "getDataForActionType(actionType:caseno:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DSIGLinea.BaseViewController.(getDataForActionType (actionType : DSIGLinea.ActionType, caseno : Swift.String) -&gt; ()).(closure #1)"
+                  moduleName = "DSIGLinea"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/satishkumarrkancherla/gitRepos/DSIGLinea/DSIGLinea/BaseViewController.swift"
+                  timestampString = "498583126.010834"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DSIGLinea.BaseViewController.(getDataForActionType (actionType : DSIGLinea.ActionType, caseno : Swift.String) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "DSIGLinea"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/satishkumarrkancherla/gitRepos/DSIGLinea/DSIGLinea/BaseViewController.swift"
+                  timestampString = "498583126.012314"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

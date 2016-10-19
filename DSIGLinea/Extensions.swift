@@ -15,7 +15,6 @@ extension UIViewController{
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let progressView = MBProgressHUD.showAdded(to: self.view, animated: true)
         progressView.label.text = title
-        progressView.tintColor = UIColor.darkGray
         progressView.detailsLabel.text = detailtext
     }
     
