@@ -122,7 +122,10 @@ class IndividualDataViewController: BaseViewController, UITableViewDelegate, UIT
     
     override func refreshData()
     {
-        self.getDataForActionType(actionType: self.actionType, caseno: self.caseData.caseno)
+        if self.actionType != .Microtome
+        {
+            self.getDataForActionType(actionType: self.actionType, caseno: self.caseData.caseno)
+        }
     }
     
     override func barcodeData(_ barcode: String!, type: Int32) {
@@ -165,11 +168,13 @@ class ActionTableViewCell: UITableViewCell
         switch actionType{
         case .Accessioning:
             self.button1.isHidden = false
-        case .QA, .Staining, .Grossing, .Embedding:
+        case .Microtome:
             self.button1.isHidden = false
             self.button2.isHidden = false
+            self.button2.setTitle("Print", for: .normal)
         default:
             self.button1.isHidden = false
+            self.button2.isHidden = false
         }
     }
     

@@ -189,9 +189,9 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
 
     func convertDateTime(dateString: String) -> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         if let dateFromString = dateFormatter.date(from: dateString) {
-            dateFormatter.dateFormat = "MM/dd/yyyy"
+            dateFormatter.dateFormat = "MM/dd/yyyy, HH:mm"
             return dateFormatter.string(from: dateFromString)
             
         }
@@ -424,6 +424,9 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
                     if let accessionNo = dataObj?.value(forKey: "Accession_No") as? Int{
                         specimen.accessionNo = "\(accessionNo)"
                     }
+                    if let verifiedFlag = qaData.value(forKey: "Verification_Flag") as? Bool{
+                        specimen.isVerified = verifiedFlag
+                    }
 
                     specimen.caseNo = caseData.caseno
                     specimens.append(specimen)
@@ -519,7 +522,12 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
                 notesObj.notes = notes
             }
             if let createdDate = notesData.value(forKey: "Created_DtTm") as? String{
-                notesObj.createdTime = self.convertDateTime(dateString: createdDate)
+                if createdDate.characters.count > 19{
+                    let index = createdDate.index(createdDate.startIndex, offsetBy: 18)
+                    notesObj.createdTime = self.convertDateTime(dateString: createdDate.substring(to: index))
+                }else{
+                    notesObj.createdTime = createdDate
+                }
             }
             notes.append(notesObj)
             
@@ -559,7 +567,7 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
         let url = URL(string: urlText.addingPercentEscapes(using: String.Encoding.utf8)!)
         let session = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.main)
         let request = NSMutableURLRequest(url: url!)
-        request.httpMethod = "POST"
+        request.httpMethod = actionType == .Microtome ? "GET" : "POST"
         request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringCacheData
         self.showProgressView(title: "Updating Status", withDetailText: "")
         let task = session.dataTask(with: request as URLRequest) {
@@ -612,6 +620,8 @@ class BaseViewController: UIViewController, DTDeviceDelegate, URLSessionDelegate
             return baseUrl + "staining?AccessionNo=\(specimen.accessionNo)&UserName=\(user.userName)&UserId=\(user.userId)&sid=\(specimen.stainingId),\(specimen.specimenId)"
         case .QA:
             return baseUrl + "qa?AccessionNo=\(specimen.accessionNo)&UserName=\(user.userName)&UserId=\(user.userId)&qaid=\(specimen.qaId),\(specimen.specimenId)"
+        case .Microtome:
+            return baseUrl + "microtome?MicrotomeId=\(specimen.microtomeId)&Print=true"
         default:
             return ""
         }
