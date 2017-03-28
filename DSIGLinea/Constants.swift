@@ -8,5 +8,13 @@
 
 import Foundation
 
-let baseUrl = "https://apitracking.apeasy.com/api/"
+var baseUrl:String {
+    let defaults = UserDefaults.standard
+    if let base = defaults.value(forKey: baseUrlKey) as? String{
+        return base
+    }else{
+        return "https://apitracking.apeasy.com/api/"
+    }
+}
+let baseUrlKey = "baseUrlKey"
 let kLoggedInKey = "kLoggedInUser"

@@ -10,6 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController, URLSessionDelegate {
 
+    @IBOutlet weak var baseUrlTextField: UITextField!
     @IBOutlet weak var loginContainer: UIView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -18,6 +19,7 @@ class LoginViewController: UIViewController, URLSessionDelegate {
         super.viewDidLoad()
         self.loginBtn.layer.cornerRadius = 3.0
         self.loginContainer.layer.cornerRadius = 10.0
+        self.baseUrlTextField.text = baseUrl
     }
 
     @IBAction func doLogin(_ sender: UIButton) {
@@ -26,6 +28,13 @@ class LoginViewController: UIViewController, URLSessionDelegate {
     
     func makeLogin()
     {
+        let defaults = UserDefaults.standard
+        if let baseTxt = self.baseUrlTextField.text{
+            defaults.set(baseTxt, forKey: baseUrlKey)
+        }else{
+            defaults.removeObject(forKey: baseUrlKey)
+        }
+        defaults.synchronize()
         self.userNameTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
         guard let userId = self.userNameTextField.text, let password = self.passwordTextField.text, userId.characters.count > 0, password.characters.count > 0 else
